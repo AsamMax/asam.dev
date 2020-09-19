@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load portfolio_tags %}
+
+
+{% block title %} Lebenslauf {% endblock %}
+
+{% block head %} {% endblock%}
+
+{% block content %}
+
+<div id="cv">
+    <h1 class="with_sub">Maximilian Asam</h1>
+    <div class="sub">Full Stack Developer</div>
+    <hr>
+    <div class="stat"><span class="material-icons">email</span> : <span class="desc"> mail@example.com</span></div>
+
+
+    <h2>Erfahrung</h2>
+    <hr>
+    <div class="experience">
+        {% with type="experience" %}
+        {% for data in experience %}
+        {% include "spotlight.html" %}
+        {% endfor %}
+        {% endwith %}
+    </div>
+
+    <h2>Bildung</h2>
+    <hr>
+    <div class="education">
+        {% with type="education" %}
+        {% for data in education %}
+        {% include "spotlight.html" %}
+        {% endfor %}
+        {% endwith %}
+    </div>
+
+
+    <h2>Persönliches</h2>
+    <hr>
+    {% lorem 10 p %}
+</div>
+
+{% endblock %}
+
+{% block infos%}
+
+<div id="cvInfos">
+    <h2>Skills</h2>
+    <hr>
+    <table class="skill_list">
+        {% for skill in skills|dictsortreversed:"stars" %}
+        <tr>
+            <td class="skill">{{skill.name}}</td>
+            <td class="stars">{% for star in skill.stars|stars %} <span class="material-icons star">{{star}}</span> {% endfor %} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Frameworks</h2>
+    <hr>
+    <table class="fw_list">
+        {% for framework in frameworks|dictsortreversed:"stars" %}
+        <tr>
+            <td class="framework">{{framework.name}}</td>
+            <td class="stars">{% for star in framework.stars|stars %} <span class="material-icons star">{{star}}</span> {% endfor %} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Sprachen</h2>
+    <hr>
+    <table class="lang_list">
+        {% for language in languages|dictsortreversed:"stars" %}
+        <tr>
+            <td class="language">{{language.name}}</td>
+            <td class="stars">{% for star in language.stars|stars %} <span class="material-icons star">{{star}}</span> {% endfor %} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

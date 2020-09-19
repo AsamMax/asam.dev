@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <title>{% block title %}{% endblock %} | Maximilian Asam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Hallo, mein Name ist Maximilian und ich bin ein heißer Informatiker, der gerne Ananas isst und seinen scheiß Schreibtisch nicht aufräumt.">
+
+    <!-- not mine -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quattrocento+Sans" rel="stylesheet">
+
+    <!-- mine -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <!--<link rel="stylesheet" href="{% static "css/main.css" %}"> -->
+
+    {% load compress %}
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'theme.scss' %}" rel="stylesheet">
+    {% endcompress %}
+
+
+    <script type="text/javascript" src="{% static "js/main.js" %}"></script>
+    <style>
+        #sideNav {
+            background-image: url({% static "img/new-york-night-no-moon.jpg" %});
+        }
+
+        .light_mode #sideNav {
+            background-image: url({% static "img/new-york-day.jpg" %});
+        }
+
+        .light_mode #sideMenu {
+            padding: 0 0 35em 0 !important;
+        }
+    </style>
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <script>
+        startLoad()
+    </script>
+
+    <div id="loader"></div>
+
+    <div id="sideNav">
+        <div>
+            <img id="profilePic" src="{% static "img/me.jpg" %}" alt="Maximilian Asam">
+            <h1>Maximilian Asam</h1>
+            <div class="sub_header">Full Stack Developer</div>
+            <ul id="sideMenu">
+                <li>
+                    <a href="{% url 'about_me' %}">
+                        Über mich
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'curriculum_vitae' %}">
+                        Lebenslauf
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}">
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="topBar">
+        <button class="top_bar_element" onclick="toggleColorMode()">
+            <i class="material-icons">brightness_3</i>
+        </button>
+        <button class="top_bar_element" onclick="window.print()">
+            <i class="material-icons">print</i>
+        </button>
+        <button class="top_bar_element">
+            <i class="material-icons">mail</i>
+        </button>
+    </div>
+
+
+
+    <div id="infos">
+        {% block infos%}{% endblock%}
+    </div>
+
+
+    <div id="main">
+        {% block content %}{% endblock %}
+    </div>
+
+
+</body>
+<footer>
+    <script> </script>
+</footer>
+
+</html>

@@ -1,0 +1,23 @@
+<div class="spotlight">
+    <div class="time tc-soft">{{ data.time }}</div>
+    <div class="short tc-soft">
+        <span class="tc-normal">{{ data.name }}</span>
+        {{ data.at|default:"bei" }}
+        <span class="tc-normal">
+            {% if data.placeLink %}
+            <a class="external" href="{{data.placeLink}}" rel="noopener" target="_blank">
+                {{ data.place }}
+            </a>
+            {% else %}
+            {{ data.place }}
+            {% endif %}
+        </span>
+    </div>
+    {% if data.bullets %}
+    <ul class="bullets">
+        {% for bullet in data.bullets %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
