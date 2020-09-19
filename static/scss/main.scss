@@ -1,0 +1,342 @@
+:root {
+    --bg-color: #{$dark};
+    --text-color: #{$light};
+    --text-color-soft: #{$medium-gray};
+    --accent-color: #{$accent};
+    --accent-color-soft: #{mix($accent,$light,$weight:75%)};
+    --accent-color-super-soft: #{mix($accent,$light,$weight:10%)};
+
+    --soft-light: #{rgba(#fff, .75)};
+    --super-soft-light: #{rgba(#fff, .1)};
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: $body-font;
+    transition: background-color $color-transition, color $color-transition;
+
+    &.light_mode {
+        --bg-color: #{$light};
+        --text-color: #{$dark};
+        --text-color-soft: #{mix($dark,$medium-gray,$weight:25%)};
+        --text-color-super-soft: #{mix($dark,$light,$weight:40%)};
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headline-font;
+}
+
+#sideNav {
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+
+    background-size: cover, 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    box-shadow: 0 0 5rem rgba(0, 0, 0, 0.25);
+
+
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition: background $color-transition, color $color-transition;
+
+    h1 {
+        color: var(--text-color);
+        transition: color $color-transition;
+        margin-bottom: 0em;
+    }
+
+    #sideMenu {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 15em 0;
+        transition: padding $overshoot-transition;
+
+        a {
+            transition: color 1s;
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 1.5em;
+            color: var(--text-color-soft);
+            display: block;
+
+            &:hover,
+            &:focus {
+                color: var(--text-color);
+                cursor: pointer;
+                transition: color 0s;
+
+                .light_mode & {
+                    color: var(--bg-color);
+                }
+            }
+        }
+    }
+}
+
+
+
+#main {
+    width: calc(100% - 2*23% - 10%);
+    margin: auto;
+    min-height: 100%;
+    padding: 2em 2em;
+}
+
+#main,
+#infos {
+    line-height: 1.75;
+
+    h1 {
+        font-size: 3em;
+        margin: 0.4em 0;
+    }
+
+    hr {
+        transition: all $color-transition;
+        margin: 0 1em 0 0;
+        opacity: 1;
+        border-color: var(--accent-color);
+
+        .light_mode & {
+            opacity: 0.5;
+        }
+    }
+
+    a {
+        transition: border-color $super-short-transition;
+        color: inherit;
+        text-decoration: none;
+        border-bottom: var(--accent-color) 1px solid;
+
+        &.external::after {
+            content: '\e89e';
+            font-family: 'Material Icons';
+            color: var(--accent-color-soft);
+            margin-left: 0.3em;
+            opacity: 0.5;
+
+            transition: opacity $super-short-transition;
+        }
+
+        &:hover,
+        &:focus {
+            border-color: var(--accent-color-super-soft);
+
+            &.external::after {
+                color: var(--accent-color-super-soft);
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+#topBar {
+    background-color: var(--bg-color);
+    width: calc(100% - 23% - 5vw);
+    margin-left: 23%;
+    padding-left: 5vw;
+    position: sticky;
+    top: 0;
+    height: 75px;
+    z-index: 9;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.25);
+
+    transition: background-color $color-transition, color $color-transition;
+
+    .top_bar_element {
+        position: relative;
+        height: 75px;
+        width: 75px;
+        margin: 0 -5px 0 0;
+
+        background-color: transparent;
+        color: rgb(77, 77, 77);
+        border: none;
+        border-color: rgb(77, 77, 77);
+        border-right: 1px solid;
+        border-left: 1px solid;
+        border-radius: 0px;
+
+        &:hover,
+        &:focus {
+            color: var(--soft-light);
+            border-color: var(--soft-light);
+            background-color: var(--super-soft-light);
+            transition: color $short-transition,
+                border-color $short-transition,
+                background-color $short-transition;
+            cursor: pointer;
+            z-index: 10;
+
+            .light_mode & {
+                color: var(--accent-color);
+                border-color: var(--accent-color);
+                transition: color $short-transition,
+                    border-color $short-transition,
+                    background-color $short-transition;
+                background-color: var(--accent-color-super-soft);
+
+            }
+        }
+    }
+}
+
+#infos {
+
+    width: calc(23% - 5%);
+    margin-right: 5%;
+    position: sticky;
+    top: 70px;
+    margin-top: 160px;
+    float: right;
+}
+
+#contactMe {
+    position: sticky;
+}
+
+
+#profilePic {
+    width: 100px;
+    border-radius: 100px;
+    border: var(--accent-color-soft) 3px solid;
+
+    transition: border-color $color-transition;
+
+    .light_mode & {
+        border-color: var(--bg-color);
+    }
+}
+
+#loader {
+    opacity: 1;
+    background-color: var(--bg-color);
+    pointer-events: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+
+    transition: opacity 0.5s;
+
+    &.done {
+        opacity: 0;
+    }
+}
+
+.sub_header {
+    color: var(--accent-color-soft);
+    margin: 0 0 1rem 0;
+    transition: color $short-transition;
+
+    .light_mode & {
+        color: var(--text-color-soft);
+    }
+}
+
+h1.with_sub {
+    margin: 0.77em 0 0 0 !important;
+    line-height: 1;
+}
+
+div.sub {
+    transition: color $color-transition;
+    margin: 0 0 9px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.spotlight {
+    margin-top: 10px;
+
+    .time {
+        transition: color $color-transition;
+
+        .light_mode & {
+            color: var(--text-color-super-soft);
+        }
+    }
+
+    .short {
+        transition: color $color-transition;
+
+        font-size: 1.2em;
+        line-height: 1em;
+
+        .light_mode & {
+            color: var(--text-color-super-soft);
+        }
+    }
+
+    .bullets {
+        color: var(--text-color-soft);
+        line-height: 1.7em;
+
+        .light_mode & {
+            color: var(--text-color-super-soft);
+        }
+    }
+}
+
+#cvInfos {
+
+    .skill_list,
+    .lang_list,
+    .fw_list {
+        line-height: 1.5em;
+        margin-top: 5px;
+        width: 100%;
+
+        .stars {
+            float: right;
+            margin-right: 20px;
+
+            .star {
+                font-size: 22px;
+                color: var(--accent-color);
+            }
+        }
+    }
+}
+
+.stat {
+    .material-icons {
+        color: var(--accent-color-soft);
+    }
+}
+
+
+.tc-soft {
+    color: var(--text-color-soft);
+
+}
+
+.tc-normal {
+    transition: color $color-transition;
+    color: var(--text-color);
+}
+
+.bold {
+    font-weight: bold;
+}
