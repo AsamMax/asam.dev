@@ -12,27 +12,33 @@
     <h1 class="with_sub">Maximilian Asam</h1>
     <div class="sub">Full Stack Developer</div>
     <hr>
-    <div class="stat"><span class="material-icons">email</span> : <span class="desc"> mail@example.com</span></div>
+    <div class="description">
+        Hello World! 
+        Mein Name ist Maximilian und ich bin 22 Jahre alt. 
+        Ich programmiere seit ich 13 Jahre alt bin und es ist neben meiner Leidenschaft auch zu meinem Beruf geworden. 
+        Zusätzlich zu meiner Erfahrung in der Webentwicklung, arbeite ich auch an diversen anderen Projekten (z.B. im Bereich des native development).
+    </div>
+    <div class="stats">
+        <div class="stat"><span class="material-icons">email</span> : <span class="desc">mail@example.com</span></div>
+        <div class="stat"><span class="material-icons">place</span> : <span class="desc">86153 Augsburg, Deutschland</span></div>
+        <div class="stat"><span class="material-icons">home</span> : <span class="desc">asam.dev</span></div>
+    </div>
 
 
     <h2>Erfahrung</h2>
     <hr>
     <div class="experience">
-        {% with type="experience" %}
         {% for data in experience %}
         {% include "spotlight.html" %}
         {% endfor %}
-        {% endwith %}
     </div>
 
     <h2>Bildung</h2>
     <hr>
     <div class="education">
-        {% with type="education" %}
         {% for data in education %}
         {% include "spotlight.html" %}
         {% endfor %}
-        {% endwith %}
     </div>
 
 
