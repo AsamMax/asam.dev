@@ -2,12 +2,26 @@
     --bg-color: #{$dark};
     --text-color: #{$light};
     --text-color-soft: #{$medium-gray};
-    --accent-color: #{$accent};
-    --accent-color-soft: #{mix($accent,$light,$weight:75%)};
-    --accent-color-super-soft: #{mix($accent,$light,$weight:10%)};
+
+    --accent-color: #{$accent-light};
+    --accent-color-soft: #{mix($accent-light,$light,$weight:10%)};
 
     --soft-light: #{rgba(#fff, .75)};
     --super-soft-light: #{rgba(#fff, .1)};
+
+    --shaddow-color: rgba(0, 0, 0, .5);
+}
+
+body.light_mode {
+    --bg-color: #{$light};
+    --text-color: #{$dark};
+    --text-color-soft: #{mix($dark,$medium-gray,$weight:50%)};
+    --text-color-super-soft: #{mix($dark,$light,$weight:50%)};
+
+    --accent-color: #{$accent-dark};
+    --accent-color-soft: #{mix($accent-dark,$light,$weight:10%)};
+
+    --shaddow-color: rgba(0, 0, 0, .2);
 }
 
 body {
@@ -15,13 +29,6 @@ body {
     color: var(--text-color);
     font-family: $body-font;
     transition: background-color $color-transition, color $color-transition;
-
-    &.light_mode {
-        --bg-color: #{$light};
-        --text-color: #{$dark};
-        --text-color-soft: #{mix($dark,$medium-gray,$weight:50%)};
-        --text-color-super-soft: #{mix($dark,$light,$weight:50%)};
-    }
 }
 
 h1,
@@ -46,7 +53,7 @@ h6 {
     background-size: cover, 100%;
     background-repeat: no-repeat;
     background-position: center bottom;
-    box-shadow: $menu-shadow;
+    box-shadow: 0 0 5rem var( --shaddow-color);
 
 
     display: -webkit-flex;
@@ -55,7 +62,7 @@ h6 {
     justify-content: center;
     text-align: center;
 
-    transition: background $color-transition, color $color-transition;
+    transition: box-shadow $color-transition, background $color-transition, color $color-transition;
 
     h1 {
         color: var(--text-color);
@@ -129,19 +136,18 @@ h6 {
         &.external::after {
             content: '\e89e';
             font-family: 'Material Icons';
-            color: var(--accent-color-soft);
+            color: var(--accent-color);
             margin-left: 0.3em;
-            opacity: 0.5;
 
-            transition: opacity $super-short-transition;
+            transition: color $super-short-transition, opacity $super-short-transition;
         }
 
         &:hover,
         &:focus {
-            border-color: var(--accent-color-super-soft);
+            border-color: var(--text-color-super-soft);
 
             &.external::after {
-                color: var(--accent-color-super-soft);
+                color: var(--text-color-super-soft);
                 opacity: 0.8;
             }
         }
@@ -157,9 +163,9 @@ h6 {
     top: 0;
     height: 75px;
     z-index: 9;
-    box-shadow: $menu-shadow;
+    box-shadow: 0 0 5rem var( --shaddow-color);
 
-    transition: background-color $color-transition, color $color-transition;
+    transition: box-shadow $color-transition, background-color $color-transition, color $color-transition;
 
     .top_bar_element {
         position: relative;
@@ -192,7 +198,7 @@ h6 {
                 transition: color $short-transition,
                     border-color $short-transition,
                     background-color $short-transition;
-                background-color: var(--accent-color-super-soft);
+                background-color: var(--accent-color-soft);
 
             }
         }
@@ -217,7 +223,7 @@ h6 {
 #profilePic {
     width: 100px;
     border-radius: 100px;
-    border: var(--accent-color-soft) 3px solid;
+    border: var(--accent-color) 3px solid;
 
     transition: border-color $color-transition;
 
@@ -247,7 +253,7 @@ h6 {
 }
 
 .sub_header {
-    color: var(--accent-color-soft);
+    color: var(--accent-color);
     margin: 0 0 1rem 0;
     transition: color $short-transition;
 
@@ -317,6 +323,7 @@ div.sub {
             .star {
                 font-size: 22px;
                 color: var(--accent-color);
+                transition: color $color-transition;
             }
         }
     }
@@ -349,7 +356,8 @@ div.sub {
         }
 
         .material-icons {
-            color: var(--accent-color-soft);
+            transition: color $color-transition;
+            color: var(--accent-color);
             position: relative;
             top: 6px;
         }
@@ -364,13 +372,18 @@ div.sub {
     }
 }
 
-.description{
+.description {
     margin-right: 1.1em;
     text-align: justify;
+
+    i {
+        transition: color $color-transition;
+        color: var(--accent-color);
+    }
 }
 
 .personal {
-    .name{
+    .name {
         font-size: 20px;
         width: 20%;
         vertical-align: top;
