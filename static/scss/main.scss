@@ -15,8 +15,8 @@
 body.light_mode {
     --bg-color: #{$light};
     --text-color: #{$dark};
-    --text-color-soft: #{mix($dark,$medium-gray,$weight:50%)};
-    --text-color-super-soft: #{mix($dark,$light,$weight:50%)};
+    --text-color-soft: #{mix($dark,$medium-gray,$weight:70%)};
+    --text-color-super-soft: #{mix($dark,$light,$weight:70%)};
 
     --accent-color: #{$accent-dark};
     --accent-color-soft: #{mix($accent-dark,$light,$weight:10%)};
