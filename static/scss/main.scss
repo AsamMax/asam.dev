@@ -46,7 +46,7 @@ h6 {
     background-size: cover, 100%;
     background-repeat: no-repeat;
     background-position: center bottom;
-    box-shadow: 0 0 5rem rgba(0, 0, 0, 0.25);
+    box-shadow: $menu-shadow;
 
 
     display: -webkit-flex;
@@ -157,7 +157,7 @@ h6 {
     top: 0;
     height: 75px;
     z-index: 9;
-    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.25);
+    box-shadow: $menu-shadow;
 
     transition: background-color $color-transition, color $color-transition;
 
@@ -241,6 +241,7 @@ h6 {
     transition: opacity 0.5s;
 
     &.done {
+        transition: opacity 1s;
         opacity: 0;
     }
 }
@@ -290,6 +291,7 @@ div.sub {
     }
 
     .bullets {
+        transition: color $color-transition;
         color: var(--text-color-soft);
         line-height: 1.7em;
 
@@ -338,6 +340,7 @@ div.sub {
 .stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 1em;
     margin-right: 1.5em;
 
     .stat {
@@ -363,4 +366,13 @@ div.sub {
 
 .description{
     margin-right: 1.1em;
+    text-align: justify;
+}
+
+.personal {
+    .name{
+        font-size: 20px;
+        width: 20%;
+        vertical-align: top;
+    }
 }
