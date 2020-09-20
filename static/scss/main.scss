@@ -19,8 +19,8 @@ body {
     &.light_mode {
         --bg-color: #{$light};
         --text-color: #{$dark};
-        --text-color-soft: #{mix($dark,$medium-gray,$weight:25%)};
-        --text-color-super-soft: #{mix($dark,$light,$weight:40%)};
+        --text-color-soft: #{mix($dark,$medium-gray,$weight:50%)};
+        --text-color-super-soft: #{mix($dark,$light,$weight:50%)};
     }
 }
 
@@ -168,9 +168,9 @@ h6 {
         margin: 0 -5px 0 0;
 
         background-color: transparent;
-        color: rgb(77, 77, 77);
+        color: #828282;
         border: none;
-        border-color: rgb(77, 77, 77);
+        border-color: #828282;
         border-right: 1px solid;
         border-left: 1px solid;
         border-radius: 0px;
@@ -320,20 +320,6 @@ div.sub {
     }
 }
 
-.stat {
-    .material-icons {
-        color: var(--accent-color-soft);
-        position: relative;
-        top: 6px;
-    }
-    
-    color: var(--text-color-soft);
-
-    .desc{
-        color: var(--text-color);
-    }
-}
-
 
 .tc-soft {
     color: var(--text-color-soft);
@@ -347,4 +333,34 @@ div.sub {
 
 .bold {
     font-weight: bold;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-right: 1.5em;
+
+    .stat {
+        &:nth-child(even) {
+            text-align: right;
+        }
+
+        .material-icons {
+            color: var(--accent-color-soft);
+            position: relative;
+            top: 6px;
+        }
+
+        color: var(--text-color-soft);
+        transition: color $color-transition;
+
+        .desc {
+            color: var(--text-color);
+            transition: color $color-transition;
+        }
+    }
+}
+
+.description{
+    margin-right: 1.1em;
 }
