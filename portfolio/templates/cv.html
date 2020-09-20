@@ -13,9 +13,9 @@
     <div class="sub">Full Stack Developer</div>
     <hr>
     <div class="description">
-        Hello World! 
-        Mein Name ist Maximilian und ich bin 22 Jahre alt. 
-        Ich programmiere seit ich 13 Jahre alt bin und es ist neben meiner Leidenschaft auch zu meinem Beruf geworden. 
+        Hello World!
+        Mein Name ist Maximilian und ich bin 22 Jahre alt.
+        Ich programmiere seit ich 13 Jahre alt bin und es ist neben meiner Leidenschaft auch zu meinem Beruf geworden.
         Zusätzlich zu meiner Erfahrung in der Webentwicklung, arbeite ich auch an diversen anderen Projekten (z.B. im Bereich des native development).
     </div>
     <div class="stats">
@@ -44,7 +44,16 @@
 
     <h2>Persönliches</h2>
     <hr>
-    {% lorem 10 p %}
+    <table class="personal">
+        {% for name, line in personal.items %}
+        <tr>
+            <td class="name">{{name}}</td>
+            <td class="points">
+                {{ line|join:', ' }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </div>
 
 {% endblock %}

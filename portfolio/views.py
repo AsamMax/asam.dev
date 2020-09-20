@@ -26,7 +26,7 @@ def cv(request):
             "place": "IHK Akademie Schwaben",
             "time": "Semptember 2015 - Juli 2016",
             "placeLink": "https://www.ihk-akademie-schwaben.de/",
-            "bullets":[
+            "bullets": [
                 "Umgang mit CNC-Fräsen und -Drehmaschienen",
                 "Aufbau zweckgebundener Platinen",
                 "Optimierung von Schaltplänen für Microcontroller",
@@ -36,7 +36,7 @@ def cv(request):
             "place": "XITASO GmbH",
             "time": "März 2013",
             "placeLink": "https://xitaso.com/",
-            "bullets":[
+            "bullets": [
                 "Erste Grundlagen und Kentnisse im Bereich der angewandten Informatik",
                 "Konfiguration von Netzwerkdiensten",
             ]
@@ -46,10 +46,10 @@ def cv(request):
             "place": "Berufsschule 7 Augsburg",
             "time": "August 2017 - Juli 2020",
             "at": "an der",
-            "bullets":[
+            "bullets": [
                 "Abschlussprüfungsschnitt: 94 von 100 Punkten (entspricht ca. 1,2)",
             ]
-        },{
+        }, {
             "name": "Fachabitur (Technik)",
             "place": "Fachoberschule Augsburg",
             "time": "Semptember 2015 - Juli 2017",
@@ -75,7 +75,7 @@ def cv(request):
             {"name": "SASS/SCSS", "stars": 3.5, },
             {"name": "Java", "stars": 2.5, },
             {"name": "C++", "stars": 2, },
-            {"name": "MySQL", "stars": 5, }
+            {"name": "SQL", "stars": 5, }
         ],
         "frameworks": [
             {"name": "Bootstrap", "stars": 4, },
@@ -87,7 +87,13 @@ def cv(request):
         "languages": [
             {"name": "Deutsch", "stars": 5, },
             {"name": "Englisch", "stars": 4.5, },
-        ]
+        ],
+        "personal": {
+            "Stärken": ["Analytisches Denkvermögen", "Teamfähigkeit", "Kompromissbereitschaft", "Flexibilität",
+                        "Konfliktfähigkeit", "Kommunikationsfähigkeit", "Empathie",
+                         "Qualitätsbewusstsein",  "Ergebnisorientierung"],
+            "Hobbies": ["platzhalter", "lorem", "ipsum"]
+        }
     }
     return render(request, 'cv.html', context)
 
