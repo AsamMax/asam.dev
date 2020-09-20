@@ -1,6 +1,6 @@
 import sys, os
-ApplicationDirectory = 'djangoProject' 
-ApplicationName = 'djangoProject' 
+ApplicationDirectory = 'website' 
+ApplicationName = 'website' 
 VirtualEnvDirectory = 'python-app-venv' 
 VirtualEnv = os.path.join(os.getcwd(), VirtualEnvDirectory, 'bin', 'python') 
 if sys.executable != VirtualEnv: os.execl(VirtualEnv, VirtualEnv, *sys.argv) 
