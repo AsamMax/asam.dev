@@ -323,6 +323,14 @@ div.sub {
 .stat {
     .material-icons {
         color: var(--accent-color-soft);
+        position: relative;
+        top: 6px;
+    }
+    
+    color: var(--text-color-soft);
+
+    .desc{
+        color: var(--text-color);
     }
 }
 
