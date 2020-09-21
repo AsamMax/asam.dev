@@ -7,22 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Description" content="Hallo, mein Name ist Maximilian und ich bin ein heißer Informatiker, der gerne Ananas isst und seinen scheiß Schreibtisch nicht aufräumt.">
 
-    <!-- not mine -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quattrocento+Sans" rel="stylesheet">
 
     <!-- mine -->
     {% load static %}
     {% load compress %}
     
-    {% compress css %}
+    {% compress css inline %}
     <link rel="stylesheet" href="{% static "css/normalize.css" %}">
     <!--<link rel="stylesheet" href="{% static "css/main.css" %}"> -->
     <link type="text/x-scss" href="{% static 'theme.scss' %}" rel="stylesheet">
     {% endcompress %}
 
-    {% compress js  %}
+    {% compress js inline %}
     <script type="text/javascript" src="{% static "js/main.js" %}"></script>
     {% endcompress %}
 
@@ -109,6 +105,10 @@
 
 </body>
 <footer>
+    <!-- not mine -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quattrocento+Sans" rel="stylesheet">
     <script> </script>
 </footer>
 
