@@ -8,7 +8,6 @@ class CookieMiddleware(object):
         # the view (and later middleware) are called.
         
         request.colorMode = int(request.COOKIES.get('colorMode'))
-        request.temp = str(type(request.colorMode)) + " <3"
 
         response = self.get_response(request)
 
