@@ -9,7 +9,7 @@
 
     <!-- not mine -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quattrocento+Sans" rel="stylesheet">
 
     <!-- mine -->
@@ -44,7 +44,7 @@
     {% block head %}{% endblock %}
 </head>
 
-<body>
+<body {%if request.colorMode %} class="light_mode" {% endif %}>
     <script>
         startLoad()
     </script>
@@ -53,7 +53,7 @@
 
     <div id="sideNav">
         <div>
-            <img id="profilePic" src="{% webp "img/me.jpg" %}" alt="Maximilian Asam">
+            <img id="profilePic" src="{% webp "img/me_resized.jpg" %}" alt="Maximilian Asam">
             <h1>Maximilian Asam</h1>
             <div class="sub_header">Full Stack Developer</div>
             <ul id="sideMenu">

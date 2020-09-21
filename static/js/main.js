@@ -1,15 +1,4 @@
 function startLoad() {
-    // Dark = 0, Light = 1
-    var colorMode = 0;
-    var cookie = getCookie("colorMode");
-    if (cookie) {
-        colorMode = cookie;
-    }
-
-    if (colorMode > 0) {
-        document.body.classList.add('light_mode');
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("loader").classList.add("done");
         addFadeOut();
