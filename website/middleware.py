@@ -6,8 +6,8 @@ class CookieMiddleware(object):
     def __call__(self, request):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
-
-        request.colorMode = request.COOKIES.get('colorMode')
+        
+        request.colorMode = int(request.COOKIES.get('colorMode'))
 
         response = self.get_response(request)
 
