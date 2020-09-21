@@ -1,3 +1,5 @@
+from comfort import comfy
+
 class CookieMiddleware(object):
     def __init__(self, get_response):
         self.get_response = get_response
@@ -7,7 +9,7 @@ class CookieMiddleware(object):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
         
-        request.colorMode = int(request.COOKIES.get('colorMode'))
+        request.colorMode = int(comfy.firstTrue(request.COOKIES.get('colorMode'),0))
 
         response = self.get_response(request)
 
