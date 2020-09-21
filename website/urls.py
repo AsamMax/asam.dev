@@ -20,5 +20,5 @@ from django.conf.urls.static import static # to import static in deployment
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('portfolio.urls')),
+    path('', include('portfolio.urls',namespace="me")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
