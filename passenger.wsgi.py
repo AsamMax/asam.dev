@@ -1,4 +1,3 @@
-from django.core.wsgi import get_wsgi_application
 import sys
 import os
 ApplicationDirectory = 'website'
@@ -13,4 +12,5 @@ sys.path.insert(0, os.path.join(
 sys.path.insert(0, os.path.join(os.getcwd(), VirtualEnvDirectory, 'bin'))
 os.chdir(os.path.join(os.getcwd(), ApplicationDirectory))
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', ApplicationName + '.settings')
+from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
