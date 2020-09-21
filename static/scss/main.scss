@@ -43,7 +43,7 @@ h6 {
 #sideNav {
     height: 100%;
 
-    min-width: 250px;
+    min-width: 300px;
     width: 23%;
 
     position: fixed;
@@ -65,14 +65,17 @@ h6 {
     justify-content: center;
     text-align: center;
 
-    transition: box-shadow $color-transition, background $color-transition, color $color-transition, transform $short-transition;
+    transition: box-shadow $color-transition, background $color-transition, color $color-transition, transform $short-transition, filter $short-transition;
 
 
     @media screen and (max-width: $break-medium) {
-        transform: translateX(-220px);
+        transform: translateX(calc(6.5vw - 300px));
+        filter: brightness(0.5);
 
         &.show {
             transform: translateX(0);
+
+            filter: none;
         }
     }
 
@@ -124,8 +127,8 @@ h6 {
 
     @media screen and (max-width: $break-medium) {
         grid-template-columns: 1fr;
-        width: calc(100% - 50px - 7.5%);
-        margin-left: 50px;
+        width: calc(100% - 35px - 7.5%);
+        margin-left: 35px;
         padding-left: 5vw;
     }
 }
@@ -192,8 +195,8 @@ h6 {
 
 
     @media screen and (max-width: $break-medium) {
-        width: calc(100% - 50px - 5%);
-        margin-left: 50px;
+        width: calc(100% - 35px - 5%);
+        margin-left: 35px;
     }
 
     .top_bar_element {
