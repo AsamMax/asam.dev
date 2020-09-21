@@ -23,15 +23,15 @@
     <link type="text/x-scss" href="{% static 'theme.scss' %}" rel="stylesheet">
     {% endcompress %}
 
-
+    {% load webp %}
     <script type="text/javascript" src="{% static "js/main.js" %}"></script>
     <style>
         #sideNav {
-            background-image: url({% static "img/new-york-night-no-moon.jpg" %});
+            background-image: url({% webp "img/new-york-night-no-moon.jpg" %});
         }
 
         .light_mode #sideNav {
-            background-image: url({% static "img/new-york-day.jpg" %});
+            background-image: url({% webp "img/new-york-day.jpg" %});
         }
 
         .light_mode #sideMenu {
@@ -51,7 +51,7 @@
 
     <div id="sideNav">
         <div>
-            <img id="profilePic" src="{% static "img/me.jpg" %}" alt="Maximilian Asam">
+            <img id="profilePic" src="{% webp "img/me.jpg" %}" alt="Maximilian Asam">
             <h1>Maximilian Asam</h1>
             <div class="sub_header">Full Stack Developer</div>
             <ul id="sideMenu">
