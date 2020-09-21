@@ -87,13 +87,14 @@ h6 {
 
     #sideMenu {
         list-style: none;
-        margin: 0;
+        width: fit-content;
+        margin: 0 auto;
         padding: 0 0 15em 0;
         transition: padding $overshoot-transition;
 
         a {
             transition: color 1s;
-            padding: 6px 8px 6px 16px;
+            margin: 8px 0;
             text-decoration: none;
             font-size: 1.5em;
             color: var(--text-color-soft);

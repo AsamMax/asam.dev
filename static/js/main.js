@@ -13,6 +13,10 @@ function startLoad() {
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("loader").classList.add("done");
         addFadeOut();
+
+        document.getElementById("sideNav").addEventListener("click", function(){
+            document.getElementById("sideNav").classList.toggle("show");
+        })
     })
 
     window.addEventListener('pageshow', function (event) {
