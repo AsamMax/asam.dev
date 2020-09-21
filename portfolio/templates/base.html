@@ -56,17 +56,17 @@
             <div class="sub_header">Full Stack Developer</div>
             <ul id="sideMenu">
                 <li>
-                    <a href="{% url 'about_me' %}">
+                    <a href="{% url 'me:home' %}">
                         Über mich
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'curriculum_vitae' %}">
+                    <a href="{% url 'me:curriculum_vitae' %}">
                         Lebenslauf
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'contact' %}">
+                    <a href="{% url 'me:contact' %}">
                         Kontakt
                     </a>
                 </li>
@@ -88,14 +88,20 @@
     </div>
 
 
+    <div id="content">
 
-    <div id="infos">
-        {% block infos%}{% endblock%}
-    </div>
+        <div id="main_wrapper">
+            <div id="main">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
 
+        <div id="info_wrapper">
+            <div id="infos">
+                {% block infos%}{% endblock%}
+            </div>
+        </div>
 
-    <div id="main">
-        {% block content %}{% endblock %}
     </div>
 
 
