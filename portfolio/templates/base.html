@@ -40,7 +40,7 @@
     {% block head %}{% endblock %}
 </head>
 
-<body {%if request.colorMode %} class="light_mode" {% endif %}>
+<body {% if request.colorMode == 1 %} class="light_mode" {% endif %}>
     <script>
         startLoad()
     </script>
