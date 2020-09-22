@@ -385,9 +385,17 @@ div.sub {
     margin-top: 1em;
     margin-right: 1.5em;
 
+    
+    @media screen and (max-width: $break-small) {
+        grid-template-columns: 1fr;
+    }
+
     .stat {
         &:nth-child(even) {
             text-align: right;
+            @media screen and (max-width: $break-small) {
+                text-align: left;
+            }
         }
 
         .material-icons {
@@ -424,7 +432,7 @@ div.sub {
 .personal {
     .name {
         font-size: 20px;
-        width: 20%;
+        padding-right: 20px;
         vertical-align: top;
     }
 }
