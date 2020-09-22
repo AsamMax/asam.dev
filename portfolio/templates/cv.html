@@ -19,9 +19,17 @@
         Zusätzlich zu meiner Erfahrung in der <i>Webentwicklung</i>, arbeite ich auch an diversen anderen Projekten (z.B. im Bereich des <i>native development</i>).
     </div>
     <div class="stats">
-        <div class="stat"><span class="material-icons">email</span> : <span class="desc">mail@example.com</span></div>
+        <div class="stat">
+            <div class="stat_link" onclick="window.open('mailto:{{request.myMail}}')">
+                <span class="material-icons">email</span> : <span class="desc">{{request.myMail}}</span>
+            </div>
+        </div>
         <div class="stat"><span class="material-icons">place</span> : <span class="desc">86153 Augsburg, Deutschland</span></div>
-        <div class="stat"><span class="material-icons">home</span> : <span class="desc">asam.dev</span></div>
+        <div class="stat">
+            <div class="stat_link" onclick="window.open('{% url 'me:home' %}')">
+                <span class="material-icons">home</span> : <span class="desc">asam.dev</span>
+            </div>
+        </div>
     </div>
 
 
