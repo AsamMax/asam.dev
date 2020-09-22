@@ -114,9 +114,7 @@ h6 {
     }
 }
 
-#topBar {
-    padding-left: 28vw;
-}
+
 
 #content {
     display: grid;
@@ -183,9 +181,9 @@ h6 {
     }
 }
 
-#topBar {
+#topBar {    
+    padding-left: 28vw;
     background-color: var(--bg-color);
-    width: calc(100% - 23% - 5vw);
     position: sticky;
     top: 0;
     height: 75px;
