@@ -1,0 +1,21 @@
+@keyframes blinking2 {
+    0% {
+        opacity: 0.5;
+    }
+
+    10% {
+        opacity: 0.25;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}

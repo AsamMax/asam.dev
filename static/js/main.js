@@ -38,7 +38,7 @@ function addFadeOut() {
 
             setTimeout(function () {
                 window.location = anchor.href;
-            }, 1010)
+            }, 1050)
         });
     }
 

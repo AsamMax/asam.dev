@@ -114,7 +114,20 @@ h6 {
     }
 }
 
+#sideIcon {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 5px;
 
+    .material-icons {
+        font-size: 40px;
+        opacity: 0.5;
+        animation-name: blinking2;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+    }
+}
 
 #content {
     display: grid;
@@ -181,7 +194,7 @@ h6 {
     }
 }
 
-#topBar {    
+#topBar {
     padding-left: 28vw;
     background-color: var(--bg-color);
     position: sticky;
@@ -196,6 +209,7 @@ h6 {
     @media screen and (max-width: $break-medium) {
         width: calc(100% - 35px - 5%);
         margin-left: 35px;
+        padding-left: 5vw;
     }
 
     .top_bar_element {
@@ -240,7 +254,7 @@ h6 {
     position: sticky;
     top: 70px;
     margin-top: 130px;
-    float: right;    
+    float: right;
 
     @media screen and (max-width: $break-medium) {
         margin-top: 0;
@@ -279,7 +293,7 @@ h6 {
     transition: opacity 2s;
 
     &.done {
-        transition: opacity 2s;
+        transition: opacity 1s;
         opacity: 0;
     }
 }
@@ -382,7 +396,7 @@ div.sub {
     margin-top: 1em;
     margin-right: 1.5em;
 
-    
+
     @media screen and (max-width: $break-small) {
         grid-template-columns: 1fr;
     }
@@ -390,6 +404,7 @@ div.sub {
     .stat {
         &:nth-child(even) {
             text-align: right;
+
             @media screen and (max-width: $break-small) {
                 text-align: left;
             }
@@ -407,9 +422,10 @@ div.sub {
 
         .desc {
             color: var(--text-color);
-            transition: color $color-transition; 
+            transition: color $color-transition;
         }
-        .stat_link{
+
+        .stat_link {
             cursor: pointer;
             width: fit-content;
         }
