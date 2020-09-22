@@ -10,8 +10,7 @@ class CookieMiddleware(object):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
 
-        request.colorMode = int(comfy.firstTrue(
-            request.COOKIES.get('colorMode'), 0))
+        request.colorMode = int(request.COOKIES.get('colorMode') or 0)
 
         response = self.get_response(request)
 
