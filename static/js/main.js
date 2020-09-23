@@ -13,6 +13,8 @@ function startLoad() {
                 document.getElementById("sideNav").classList.remove("show");
             }, "right": function () {
                 document.getElementById("sideNav").classList.add("show");
+            }, "tap": function () {
+                document.getElementById("sideNav").classList.remove("show");
             }
         }
     )
