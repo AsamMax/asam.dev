@@ -92,7 +92,7 @@ def cv(request):
             "Stärken": ["Analytisches Denkvermögen", "Teamfähigkeit", "Kompromissbereitschaft", "Flexibilität",
                         "Konfliktfähigkeit", "Kommunikationsfähigkeit", "Empathie",
                         "Qualitätsbewusstsein",  "Ergebnisorientierung"],
-#            "Interessen": ["Programmieren", "Sport"]      
+            #            "Interessen": ["Programmieren", "Sport"]
         }
     }
     return render(request, 'cv.html', context)

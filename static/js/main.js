@@ -1,20 +1,59 @@
 function startLoad() {
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById("loader").classList.add("done");
-        addFadeOut();
+    document.getElementById("loader").classList.add("done");
+    addFadeOut();
 
-        document.getElementById("sideNav").addEventListener("click", function(){
-            document.getElementById("sideNav").classList.toggle("show");
-        })
+    document.getElementById("sideNav").addEventListener("click", function () {
+        document.getElementById("sideNav").classList.toggle("show");
     })
 
-    window.addEventListener('pageshow', function (event) {
-        if (!event.persisted) {
-            return;
+    console.log("hello1");
+    swipeEvent(document.getElementById("sideNav"),
+        {
+            "left": function () {
+                document.getElementById("sideNav").classList.remove("show");
+            }, "right": function () {
+                document.getElementById("sideNav").classList.add("show");
+            }
         }
-        var fader = document.getElementById('fader');
-        fader.classList.remove('fade-in');
-    });
+    )
+}
+
+function swipeEvent(gesuredZone, callbacks) {
+    console.log("hello2");
+    var touchstartX = 0;
+    var touchstartY = 0;
+    var touchendX = 0;
+    var touchendY = 0;
+
+    gesuredZone.addEventListener('touchstart', function (event) {
+        touchstartX = event.changedTouches[0].screenX;
+        touchstartY = event.changedTouches[0].screenY;
+    }, false);
+
+    gesuredZone.addEventListener('touchend', function (event) {
+        touchendX = event.changedTouches[0].screenX;
+        touchendY = event.changedTouches[0].screenY;
+        handleGesure();
+    }, false);
+
+    function handleGesure() {
+        console.log("hello3");
+        if (touchendX < touchstartX) {
+            callbacks["left"]();
+        }
+        if (touchendX > touchstartX) {
+            callbacks["right"]();
+        }
+        if (touchendY < touchstartY) {
+            callbacks["down"]();
+        }
+        if (touchendY > touchstartY) {
+            callbacks["up"]();
+        }
+        if (touchendY == touchstartY) {
+            callbacks["tap"]();
+        }
+    }
 }
 
 function addFadeOut() {
