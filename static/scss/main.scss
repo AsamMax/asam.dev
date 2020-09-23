@@ -29,6 +29,7 @@ body {
     color: var(--text-color);
     font-family: $body-font;
     transition: background-color $color-transition, color $color-transition;
+    min-height: 100%;
 }
 
 h1,

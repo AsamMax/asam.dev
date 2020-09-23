@@ -6,8 +6,8 @@ function startLoad() {
         document.getElementById("sideNav").classList.toggle("show");
     })
 
-    console.log("hello1");
-    swipeEvent(document.getElementById("sideNav"),
+    
+    swipeEvent(document.getElementsByTagName("body")[0],
         {
             "left": function () {
                 document.getElementById("sideNav").classList.remove("show");
@@ -19,7 +19,6 @@ function startLoad() {
 }
 
 function swipeEvent(gesuredZone, callbacks) {
-    console.log("hello2");
     var touchstartX = 0;
     var touchstartY = 0;
     var touchendX = 0;
@@ -37,28 +36,38 @@ function swipeEvent(gesuredZone, callbacks) {
     }, false);
 
     function handleGesure() {
-        console.log("hello3");
-        if (touchendX < touchstartX) {
+        const MinChange = 0.1;
+        
+        var xChange = (touchendX-touchstartX) / screen.width;
+        var yChange = (touchendY-touchstartY) / screen.height;
+        var tap = true;
+
+
+        if (xChange < -MinChange) {
             if (callbacks["left"]) {
                 callbacks["left"]();
             }
+            tap = false;
         }
-        if (touchendX > touchstartX) {
+        if (xChange > MinChange) {
             if (callbacks["right"]) {
                 callbacks["right"]();
             }
+            tap = false;
         }
-        if (touchendY < touchstartY) {
+        if (yChange > MinChange) {
             if (callbacks["down"]) {
                 callbacks["down"]();
             }
+            tap = false;
         }
-        if (touchendY > touchstartY) {
+        if (yChange < -MinChange) {
             if (callbacks["up"]) {
                 callbacks["up"]();
             }
+            tap = false;
         }
-        if (touchendY == touchstartY) {
+        if (tap) {
             if (callbacks["tap"]) {
                 callbacks["tap"]();
             }

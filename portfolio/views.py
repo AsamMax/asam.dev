@@ -50,7 +50,7 @@ def cv(request):
                 "Abschlussprüfungsschnitt: 94 von 100 Punkten (entspricht ca. 1,2)",
             ]
         }, {
-            "name": "Fachabitur (Technik)",
+            "name": "Fachabitur (Technik)",  
             "place": "Fachoberschule Augsburg",
             "time": "Semptember 2015 - Juli 2017",
             "at": "an der"
