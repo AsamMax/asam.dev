@@ -39,19 +39,29 @@ function swipeEvent(gesuredZone, callbacks) {
     function handleGesure() {
         console.log("hello3");
         if (touchendX < touchstartX) {
-            callbacks["left"]();
+            if (callbacks["left"]) {
+                callbacks["left"]();
+            }
         }
         if (touchendX > touchstartX) {
-            callbacks["right"]();
+            if (callbacks["right"]) {
+                callbacks["right"]();
+            }
         }
         if (touchendY < touchstartY) {
-            callbacks["down"]();
+            if (callbacks["down"]) {
+                callbacks["down"]();
+            }
         }
         if (touchendY > touchstartY) {
-            callbacks["up"]();
+            if (callbacks["up"]) {
+                callbacks["up"]();
+            }
         }
         if (touchendY == touchstartY) {
-            callbacks["tap"]();
+            if (callbacks["tap"]) {
+                callbacks["tap"]();
+            }
         }
     }
 }
