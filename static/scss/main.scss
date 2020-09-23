@@ -123,9 +123,12 @@ h6 {
     .material-icons {
         font-size: 40px;
         opacity: 0.0;
-        animation-name: blinking2;
-        animation-duration: 10s;
-        animation-iteration-count: infinite;
+
+        &:not(.show &) {
+            animation-name: blinking2;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
     }
 }
 
