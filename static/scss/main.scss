@@ -10,6 +10,8 @@
     --super-soft-light: #{rgba(#fff, .1)};
 
     --shaddow-color: rgba(0, 0, 0, .5);
+
+    --white: #{$light};
 }
 
 body.light_mode {
@@ -71,7 +73,7 @@ h6 {
 
     @media screen and (max-width: $break-medium) {
         transform: translateX(calc(6.5vw - 300px));
-        filter: brightness(0.5);
+        filter: brightness(0.8);
 
         &.show {
             transform: translateX(0);
@@ -113,24 +115,25 @@ h6 {
             }
         }
     }
-}
 
-#sideIcon {
-    position: absolute;
-    z-index: 11;
-    right: -5px;
+    #sideIcon {
+        color: var(--white);
+        position: absolute;
+        z-index: 11;
+        right: -5px;
 
-    .material-icons {
-        font-size: 40px;
-        opacity: 0.5;
-        transition: opacity 10s;
-        animation-name: blinking2;
-        animation-duration: 10s;
-        animation-iteration-count: infinite;
+        .material-icons {
+            font-size: 40px;
+            opacity: 0.5;
+            transition: opacity 10s;
+            animation-name: blinking2;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
 
-        .show &{
-            opacity: 0.0;
-            animation:none;
+            .show & {
+                opacity: 0.0;
+                animation: none;
+            }
         }
     }
 }
@@ -296,7 +299,7 @@ h6 {
     left: 0;
     z-index: 9;
 
-    transition: opacity 2s;
+    transition: opacity 1s;
 
     &.done {
         transition: opacity 1s;

@@ -13,11 +13,13 @@ function startLoad() {
                 document.getElementById("sideNav").classList.remove("show");
             }, "right": function () {
                 document.getElementById("sideNav").classList.add("show");
-            }, "tap": function () {
-                document.getElementById("sideNav").classList.remove("show");
             }
         }
     )
+
+    document.getElementById("content").addEventListener("click", function () {
+        document.getElementById("sideNav").classList.remove("show");
+    })
 }
 
 function swipeEvent(gesuredZone, callbacks) {
