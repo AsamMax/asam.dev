@@ -10,7 +10,22 @@
     <p>
         I write okay code and am only late 95% of the time.
     </p>
-    {% lorem %}
+    <div class="container">
+        <form class="contact_form" action="action_page.php">
+
+            <!--<label for="fname">First Name</label>-->
+            <input type="text" id="name" name="name" placeholder="Ihr Name">
+
+            <!--<label for="lname">Last Name</label>-->
+            <input type="text" id="email" name="email" placeholder="E-Mail">
+
+            <!--<label for="subject">Subject</label>-->
+            <textarea id="subject" name="subject" placeholder="Nachricht" style="height:200px"></textarea>
+
+            <input type="submit" value="Absenden">
+
+        </form>
+    </div>
 </div>
 
 {% endblock %}
