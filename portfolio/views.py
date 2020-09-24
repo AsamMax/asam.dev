@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+
+from .forms import ContactForm
 
 # Create your views here.
 
@@ -50,7 +53,7 @@ def cv(request):
                 "Abschlussprüfungsschnitt: 94 von 100 Punkten (entspricht ca. 1,2)",
             ]
         }, {
-            "name": "Fachabitur (Technik)", 
+            "name": "Fachabitur (Technik)",
             "place": "Fachoberschule Augsburg",
             "time": "Semptember 2015 - Juli 2017",
             "at": "an der"
@@ -101,4 +104,19 @@ def cv(request):
 
 
 def contact(request):
-    return render(request, 'contact.html', {})
+    if request.method == 'POST':
+        form = ContactForm(request.Post)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            sender = form.cleaned_data['sender']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+
+            recipients = ['max@asam.dev']
+
+            send_mail("von " + name + " via asam.dev: " +
+                      subject, message, sender, recipients)
+            form = ContactForm()
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Kontakt{% endblock%}
+{% block title %}Kontakt{% endblock %}
 
 {% block content %}
 
@@ -11,19 +11,12 @@
         I write okay code and am only late 95% of the time.
     </p>
     <div class="container">
-        <form class="contact_form" action="action_page.php">
+        <form class="contact_form" action="{{ request.path }}">
 
-            <!--<label for="fname">First Name</label>-->
-            <input type="text" id="name" name="name" placeholder="Ihr Name">
+            {% csrf_token %}
+            {{ form }}
 
-            <!--<label for="lname">Last Name</label>-->
-            <input type="text" id="email" name="email" placeholder="E-Mail">
-
-            <!--<label for="subject">Subject</label>-->
-            <textarea id="subject" name="subject" placeholder="Nachricht" style="height:200px"></textarea>
-
-            <input type="submit" value="Absenden">
-
+            <input type="submit" value="Submit">
         </form>
     </div>
 </div>
