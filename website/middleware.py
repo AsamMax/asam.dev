@@ -12,12 +12,10 @@ class CookieMiddleware(object):
 
         request.colorMode = int(request.COOKIES.get('colorMode') or 0)
 
-        response = self.get_response(request)
-
         # Code to be executed for each request/response after
         # the view is called.
 
-        return response
+        return self.get_response(request)
 
 
 class ConstantsMiddleware(object):
@@ -32,9 +30,7 @@ class ConstantsMiddleware(object):
 
         request.myMail = "max@asam.dev"
 
-        response = self.get_response(request)
-
         # Code to be executed for each request/response after
         # the view is called.
 
-        return response
+        return self.get_response(request)
